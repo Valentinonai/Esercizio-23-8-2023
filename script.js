@@ -25,9 +25,20 @@ const scarta = (event, books, cart) => {
   if (cart !== undefined) {
     for (let i = 0; i < cart.length; i++) {
       if (titolo === cart[i].title) {
+        deleteCartScartata(cart[i]);
         cart.splice(i, 1);
         localStorage.setItem("cart", JSON.stringify(cart));
       }
+    }
+  }
+};
+const deleteCartScartata = (elem) => {
+  const item = document.querySelectorAll(".carrelloItem");
+  for (let i = 0; i < item.length; i++) {
+    const index = item[i].children[1].textContent.indexOf("Price");
+    const text = item[i].children[1].textContent.slice(0, index - 1);
+    if (text === elem.title) {
+      item[i].remove();
     }
   }
 };
@@ -51,6 +62,7 @@ const creaCart = (cart) => {
     p.style = "font-size:10px";
     const div = document.createElement("div");
     div.className = "text-white ";
+    div.classList.add("carrelloItem");
     const c = document.getElementById("cart");
     btn.innerHTML = `<i class="bi bi-trash"></i>`;
     p.innerText = cart[i].title + " " + cart[i].price;
@@ -72,6 +84,7 @@ const buy = (event, cart) => {
   p.style = "font-size:10px";
   const div = document.createElement("div");
   div.className = "text-white ";
+  div.classList.add("carrelloItem");
   const c = document.getElementById("cart");
   btn.innerHTML = `<i class="bi bi-trash"></i>`;
   p.innerText = obj.children[0].innerText + " " + obj.children[1].innerText;
