@@ -16,7 +16,7 @@ fetch(" https://striveschool-api.herokuapp.com/books")
 
 const scarta = (event, books, cart) => {
   const titolo = event.target.parentElement.firstChild.innerText;
-  event.target.parentElement.parentElement.remove();
+  event.target.parentElement.parentElement.parentElement.remove();
   for (let i = 0; i < books.length; i++) {
     if (titolo === books[i].title) {
       books.splice(i, 1);
@@ -30,8 +30,6 @@ const scarta = (event, books, cart) => {
       }
     }
   }
-  tabella.innerHTML = "";
-  creaTabella(books, cart);
 };
 const deleteCartItem = (event, cart) => {
   const item = event.currentTarget.parentElement;
