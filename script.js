@@ -102,12 +102,12 @@ const creaTabella = (books, cart) => {
     col.className = "col";
 
     const card = document.createElement("div");
-    card.className = "card";
-    card.style = "height:600px ";
+    card.className = "card  shadow border border-1 border-black";
+    card.style = "height:400px ";
     const img = document.createElement("img");
     img.setAttribute("src", books[i].img);
     img.setAttribute("alt", "img");
-    img.className = "card-img-top";
+    img.className = "card-img-top rounded-top-0 rounded-bottom-2 shadow";
     img.classList.add("imgStyle");
     const cardbody = document.createElement("div");
     cardbody.className = "card-body d-flex flex-column";
@@ -124,13 +124,13 @@ const creaTabella = (books, cart) => {
     btn.innerText = "Scarta";
     btn.addEventListener("click", (event) => scarta(event, books, cart));
     const compra = document.createElement("a");
-    compra.className = "btn btn-primary mx-2";
+    compra.className = "btn btn-primary mx-2 mb-1";
     compra.innerText = "Compra";
     compra.addEventListener("click", (event) => buy(event, cart));
     cardbody.appendChild(title);
     cardbody.appendChild(price);
-    cardbody.appendChild(btn);
     cardbody.appendChild(compra);
+    cardbody.appendChild(btn);
     card.appendChild(img);
     card.appendChild(cardbody);
     col.appendChild(card);
