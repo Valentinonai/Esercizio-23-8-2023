@@ -21,6 +21,12 @@ body {
   overflow: hidden;
   background-color: palegoldenrod;
 }
+#spinner {
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  align-items: center;
+}
 @media screen and ((min-width: 1400px)) {
   .card {
     width: 281px;

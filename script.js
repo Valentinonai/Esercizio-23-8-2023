@@ -8,9 +8,12 @@ class CartItem {
 fetch(" https://striveschool-api.herokuapp.com/books")
   .then((response) => response.json())
   .then((books) => {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    if (cart.length > 0) creaCart(cart);
-    creaTabella(books, cart);
+    setTimeout(() => {
+      document.getElementById("spinner").style = "display:none !IMPORTANT";
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      if (cart.length > 0) creaCart(cart);
+      creaTabella(books, cart);
+    }, 2000);
   })
   .catch((err) => console.log(err));
 
